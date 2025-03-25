@@ -16,9 +16,9 @@ jobs:
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
       - name: inoue php script
         run: php .github/script/test.php
-        env:
-          CLAUDE_API_KEY: ${{ secrets.CLAUDE_API_KEY }}
-          token: ${{ secrets.token }}
+        # env:
+        #   CLAUDE_API_KEY: ${{ secrets.CLAUDE_API_KEY }}
+        #   token: ${{ secrets.token }}
       - name: GITHUB_EVENT_PATH
         run: cat $GITHUB_EVENT_PATH
         
