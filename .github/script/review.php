@@ -73,10 +73,11 @@ $responseData = json_decode($response, true);
 
 if (!in_array($httpStatus, [200, 201, 202])) {
 
-    echo "エラー:" . $responseData . PHP_EOL;
+    echo "エラー:" . $responseData['content'] . PHP_EOL;
     echo "ステータス:" . $httpStatus . PHP_EOL;
 } else {
 
     echo "成功" . PHP_EOL;
     echo "実行結果: " . $responseData['content'];
 }
+
