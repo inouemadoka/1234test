@@ -73,7 +73,7 @@ $responseData = json_decode($response, true);
 
 if (!in_array($httpStatus, [200, 201, 202])) {
 
-    echo "エラー:" . $responseData['content'] . PHP_EOL;
+    echo "エラー:" . $curlError . PHP_EOL;
     echo "ステータス:" . $httpStatus . PHP_EOL;
 } else {
 
