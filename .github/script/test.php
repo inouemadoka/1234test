@@ -70,7 +70,7 @@ if (!in_array($httpStatus, [200, 201, 202])) {
 }
 
 echo "成功";
-print_r($responseData);
+echo json_encode($responseData , JSON_UNESCAPED_UNICODE);
 
 
 
