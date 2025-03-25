@@ -6,7 +6,7 @@ if (empty($envPath) || !file_exists($envPath)) {
 
 }
 $envJson = file_get_contents($envPath);
-$envData = json_decode($envPath, true);
+$envData = json_decode($envJson , true);
 if (!isset($envData)) {
     echo "データの取得ができませんでした" . PHP_EOL;
 }
@@ -64,7 +64,7 @@ curl_close($ch);
 
 $responseData = json_decode($response, true);
 
-if (!in_array($httpStatu, [200, 201, 202])) {
+if (!in_array($httpStatus, [200, 201, 202])) {
     echo "エラーです:" . $curlError . PHP_EOL;
     echo "ステータスコード:" . $httpStatus . PHP_EOL;
 }
