@@ -61,7 +61,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
 curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($body));
 
-$response = curl_exec($ch); //json
+$response = curl_exec($ch); 
 $httpStatus = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 $curlErro = curl_error($ch);
 curl_close($ch);
@@ -69,12 +69,15 @@ curl_close($ch);
 if (!$response) {
     echo "レスポンスが空です" . PHP_EOL;
 }
+if(!in_array($httpStatus[200, 201, 202])){
+    echo "レスポンスエラー。ステータス：" . $httpStatus . PHP_EOL;
+}
 
 
 if ($curlErro) {
-    echo "curlのエラーです" . "ステータス：" . $httpStatus . PHP_EOL;
+    echo "curlのエラーです。ステータス：" . $httpStatus . PHP_EOL;
 } else {
-    $responseData = json_decode($response, true); //配列
+    $responseData = json_decode($response, true); 
     print_r($responseData);
 }
 
