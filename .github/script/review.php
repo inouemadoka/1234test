@@ -75,5 +75,7 @@ if ($curlErro) {
     echo "curlのエラーです" . "ステータス：" . $httpStatus . PHP_EOL;
 } else {
     $responseData = json_decode($response, true); //配列
-    echo "レスポンスの中身:" . $responseData; //表示されるか_
+    print_r($responseData);
 }
+
+
